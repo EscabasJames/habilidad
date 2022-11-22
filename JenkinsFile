@@ -13,5 +13,10 @@ pipeline {
 				}
 			}
 		}
+		stage('OWASP DependencyCheck'){
+			steps {
+			dependencyCheck additionalArguments: '--noupdate --disableAssembly --format HTML --format XML --disableYarnAudit', odcInstallation: 'Default'
+			}
+		}
 	}
 }
